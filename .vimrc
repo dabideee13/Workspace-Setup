@@ -7,22 +7,37 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/NERDTree'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'joshdick/onedark.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Shougo/neocomplete.vim'
+Plugin 'maxboisvert/vim-simple-complete'
+
+Plugin 'sheerun/vim-polyglot'
+Plugin 'vim-python/python-syntax'
+
+Plugin 'vv9k/vim-github-dark'
+Plugin 'joshdick/onedark.vim'
+Plugin 'kaicataldo/material.vim'
+
 
 call vundle#end()
 filetype plugin indent on
 
 " Theme
 set t_Co=256
-set termguicolors
 syntax on
-colorscheme onedark
+if (has('termguicolors'))
+  set termguicolors
+endif
+
+let g:airline_theme = 'material'
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'darker'
+colorscheme material
+
+" Python syntax highlighting
+let g:python_highlight_all = 1
 
 " Tab
 set tabstop=4
@@ -31,9 +46,6 @@ set expandtab
 
 " Number line
 set number
-
-" Ruler
-set colorcolumn=80
 
 " Split
 set splitbelow
@@ -83,5 +95,29 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] [%severity%] %code: %%s'
 
-" Neocomplete
-let g:neocomplete#enable_at_startup = 1
+" Vim Simple Complete
+set complete-=t
+set complete-=i
+
+" Vim speed
+set timeoutlen=1000
+set ttimeoutlen=0
+
+function! CloseHiddenBuffers()
+    " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    " close any buffers hidden
+    " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    let open_buffers = []
+
+    for i in range(tabpagenr('$'))
+        call extend(open_buffers, tabpagebuflist(i + 1))
+    endfor
+
+    for num in range(1, bufnr("$") + 1)
+        if buflisted(num) && index(open_buffers, num) == -1
+            exec "bdelete ".num
+        endif
+    endfor
+endfunction
+
+au BufEnter * call CloseHiddenBuffers()
