@@ -128,24 +128,6 @@ dl_playlist() {
   youtube-dl -cit --extract-audio --audio-format mp3 $1
 }
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-# export PYTHONPATH="/Users/d.e.magno/clones/clones-py/Python-Web-Scraping-Cookbook/modules:$PYTHONPATH"
-# export PYTHONPATH="/Users/d.e.magno/tmp/tmp_covid/epcontrol:$PYTHONPATH"
-
 # path for scala
 export PATH="/usr/local/scala/bin:$PATH"
 
@@ -156,40 +138,8 @@ export DEFAULT_USER="$(whoami)"
 # fix open error issues
 export LC_ALL=en_US.UTF-8
 
-# path for shell scripts
-export PATH="/Users/d.e.magno/shits/shits-sh:$PATH"
-export PATH="/Users/d.e.magno/shits/shits-py/atbs:$PATH"
-export PATH="/Users/d.e.magno/shits/shits-sh/mastering_bash:$PATH"
-export PATH="/Users/d.e.magno/shits/shits-bash/theme-bash:$PATH"
-export PATH="/Applications/VLC.app/Contents/MacOS:$PATH"
-
-# path for python exec
-export PATH="/Users/d.e.magno/scripts:$PATH"
-export PATH="/Users/d.e.magno/scripts/copied-py:$PATH"
-export PATH="/Users/d.e.magno/scripts/m_aes:$PATH"
-export PATH="/Users/d.e.magno/scripts/noter_app:$PATH"
-
 # path for SQL
 export PATH="/usr/local/mysql-8.0.20-macos10.15-x86_64/bin:$PATH"
-
-# set default variable paths
-export PROJ="//Users/d.e.magno/Projects"
-export RL="//Users/d.e.magno/shits/shits-RL"
-export PY="//Users/d.e.magno/shits/shits-py"
-export CRL="//Users/d.e.magno/clones/clones-RL"
-export CPY="//Users/d.e.magno/clones/clones-py"
-export TEX="//Users/d.e.magno/shits/shits-tex"
-export ENV="//opt/anaconda3/lib/python3.7/site-packages/gym/envs"
-export BSH="//Users/d.e.magno/shits/shits-sh/scripts-sh"
-export DATA="//Users/d.e.magno/data"
-export HS="//Users/d.e.magno/shits/shits-hs"
-export CHS="//Users/d.e.magno/clones/clones-hs"
-export SC="//Users/d.e.magno/shits/shits-scala"
-export CSC="//Users/d.e.magno/clones/clones-scala"
-export SQL="//Users/d.e.magno/shits/shits-sql"
-export CSQL="//Users/d.e.magno/clones/clones-sql"
-export NOW="//Users/d.e.magno/Projects/1_project"
-
 
 set editing-mode vi
 
