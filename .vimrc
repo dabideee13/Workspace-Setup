@@ -24,6 +24,10 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'KKPMW/vim-sendtowindow'
 Plugin 'mhinz/vim-startify'
 
+Plugin 'junkblocker/patchreview-vim'
+Plugin 'codegram/vim-codereview'
+
+
 call vundle#end()
 filetype plugin indent on
 
@@ -54,6 +58,9 @@ set number
 set splitbelow
 set splitright
 
+" Set leader key
+let mapleader = ","
+
 " Split navigations
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -65,7 +72,19 @@ inoremap <C-l> <C-w>l
 inoremap <C-h> <C-w>h
 
 " Switch focus vim to terminal
-nnoremap <leader>t :stop<CR>
+nnoremap <leader>e :stop<CR>
+
+" Go to next/previous matching word
+nnoremap <S-l> *
+nnoremap <S-h> #
+
+nnoremap K i<CR><Esc>ww
+nnoremap vm 0v$
+
+" Close buffer
+nnoremap <leader>q :q<CR>
+nnoremap <leader>s :w<CR>
+nnoremap <leader>qq :q!<CR>
 
 " Change split
 map <leader>th <C-w>t<C-w>H
@@ -78,7 +97,10 @@ noremap <silent> <C-Up> :resize -3<CR>
 noremap <silent> <C-Down> :resize +3<CR>
 
 " Start integrated terminal
-map <Leader>tp :new term://bash<CR>ipython3<CR><C-\><C-n><C-w>k
+map <Leader>tp :term<CR>ipython3<CR><C-w>w
+
+" Suspend vim
+noremap <leader>t :stop<CR>
 
 " Search
 set hlsearch
@@ -88,13 +110,13 @@ nnoremap za :nohlsearch<CR>
 set backspace=indent,eol,start
 
 " Python
-nnoremap zi :!python3 -i %<CR>
+nnoremap zi :!python -i %<CR>
 nnoremap zp :!python3 %<CR>
 nnoremap zn :!clear<CR>
 nnoremap zt :!pytest %<CR>
 nnoremap zm :!mypy %<CR>
 nnoremap zb :!black %<CR>
-nnoremap zd :!python3 -m doctest %<CR>
+nnoremap zd :!python -m pdb %<CR>
 
 " Other
 set nowrap
@@ -147,8 +169,7 @@ nnoremap <C-M> :NERDTree<CR>
 nnoremap <C-M> :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFocus<CR>
 
-" vim-slime
-let g:slime_target = "tmux"
+" vim-slime let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
 
 " startify
@@ -162,6 +183,11 @@ let g:startify_lists = [
 let g:sendtowindow_use_defaults=0
 
 nmap zj <Plug>SendDown 
-xmap zj <Plug>SendDownV 
+xmap zj <Plug>SendDownV
 nmap zl <Plug>SendRight 
-xmap zl <Plug>SendRightV 
+xmap zl <Plug>SendRightV
+
+" vim-fugitive
+nmap <leader>gs :G<CR>
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>
