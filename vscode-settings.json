@@ -1,0 +1,83 @@
+{
+    "python.pythonPath": "/Library/Frameworks/Python.framework/Versions/3.9/bin/python3.9",
+
+    "terminal.integrated.inheritEnv": true,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "workbench.colorTheme": "One Dark Pro",
+    "editor.rulers": [
+    70],
+    "editor.insertSpaces": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.tabCompletion": "on",
+    "editor.parameterHints.enabled": false,
+    "jupyter.sendSelectionToInteractiveWindow": true,
+    "jupyter.askForKernelRestart": false,
+
+    // flake8 linter
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--ignore=E203",
+        "--ignore=E266",
+        "--ignore=W503",
+        "--ignore=E501",
+        "--select = B,C,E,F,W,T4,B9",
+        "--max-complexity = 18"
+    ],
+
+    /**
+    "python.linting.pylintArgs": [
+        "--extension-pkg-whitelist=numpy,torch",
+        "--errors-only",
+        "--generated-members=numpy.*,torch.*,cv2.*,cv.*",
+        "--ignored-classes=numpy,torch",
+        "--ignored-modules=numpy,torch"
+    ],
+    */
+
+    "jupyter.widgetScriptSources": [
+        "jsdelivr.com",
+        "unpkg.com"
+    ],
+    "workbench.editorAssociations": {
+        "*.pdf": "latex-workshop-pdf-hook",
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "kite.showWelcomeNotificationOnStartup": false,
+    "tabnine.experimentalAutoImports": true,
+    "jupyter.textOutputLimit": 2000000,
+    "mssql.connections": [
+        {
+            "server": "{{put-server-name-here}}",
+            "database": "{{put-database-name-here}}",
+            "user": "{{put-username-here}}",
+            "password": "{{put-password-here}}"
+        }
+    ],
+    "window.zoomLevel": 1,
+    "[javascript]":
+        {
+            "editor.tabSize": 2
+        },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "workbench.iconTheme": "material-icon-theme",
+    "jupyter.alwaysTrustNotebooks": true,
+    "terminal.integrated.tabs.enabled": true,
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "trailing-spaces.trimOnSave": true,
+    "editor.tabSize": 8,
+    "editor.cursorStyle": "line",
+    "editor.lineNumbers": "on",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.wordWrap": "off",
+
+    // Vim settings
+    "vim.leader": "<space>",
+    "python.defaultInterpreterPath": "/Library/Frameworks/Python.framework/Versions/3.9/bin/python3.9",
+    "security.workspace.trust.untrustedFiles": "open"
+}
