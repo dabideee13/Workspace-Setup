@@ -1,0 +1,87 @@
+{
+    // Theme
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontFamily": "'MonoLisa', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontSize": 13,
+
+    // Autocompletion & autosuggestions
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+    // Other
+    "files.trimTrailingWhitespace": true,
+    "trailing-spaces.trimOnSave": true,
+
+    // Jupyter
+    "jupyter.alwaysTrustNotebooks": true,
+    "[latex]": {
+        "editor.defaultFormatter": "James-Yu.latex-workshop"
+    },
+    "jupyter.interactiveWindowMode": "perFile",
+    "jupyter.sendSelectionToInteractiveWindow": true,
+    "editor.rulers": [
+        80
+    ],
+    "jupyter.askForKernelRestart": false,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+
+    // Git
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "explorer.confirmDragAndDrop": false,
+
+    // Flake8
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--ignore=E501",
+        "--ignore=E203",
+        "--ignore=E257"
+    ],
+
+    // Pylint
+    "python.linting.pylintArgs": [
+        "--disable=C0111"
+    ],
+
+    // Vim
+    "vim.useSystemClipboard": true,
+    "explorer.confirmDelete": false,
+
+    // Terminal
+    "terminal.integrated.inheritEnv": true,
+
+    // Code spell checker
+    "cSpell.userWords": [
+        "seir",
+        "ndarray",
+        "astype",
+        "ndim",
+        "numba",
+        "njit",
+        "IliganCity",
+        "SEVIRD",
+        "genfromtxt",
+        "dtype",
+        "Eames",
+        "reindex",
+        "asarray",
+        "eigvals",
+        "amax",
+        "iterrows",
+        "iligan",
+        "numba",
+        "scipy.signal",
+        "savgol",
+        "epcontrol",
+        "susceptibles",
+        "scipy"
+    ],
+    "terminal.explorerKind": "external",
+    "files.associations": {
+        "*.rmd": "markdown"
+    },
+}
