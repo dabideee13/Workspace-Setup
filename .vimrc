@@ -47,6 +47,18 @@ Plugin 'tyru/open-browser.vim'
 " Java autocomplete
 Plugin 'artur-shaik/vim-javacomplete2'
 
+" Commenter
+Plugin 'preservim/nerdcommenter'
+
+" Parenthesis
+Plugin 'frazrepo/vim-rainbow'
+
+" Tags
+Plugin 'vim-scripts/taglist.vim'
+
+" Search
+Plugin 'junegunn/fzf'
+
 call vundle#end()
 filetype plugin indent on
 " ------------------------------------------------------------------------------------------------------
@@ -66,6 +78,10 @@ colorscheme material
 
 " Python syntax highlighting
 let g:python_highlight_all = 1
+
+" Rainbow parenthesis
+let g:rainbow_active = 1
+
 " ------------------------------------------------------------------------------------------------------
 
 
@@ -134,7 +150,8 @@ set backspace=indent,eol,start
 
 " Python
 " ------------------------------------------------------------------------------------------------------
-nnoremap zp :!python3 %<CR>
+nnoremap zi :!python3.9 -i %<CR>
+nnoremap zp :!python3.9 %<CR>
 nnoremap zn :!clear<CR>
 
 " Other
@@ -169,8 +186,6 @@ let g:ale_echo_msg_format = '[%linter%] [%severity%] %code: %%s'
 " ------------------------------------------------------------------------------------------------------
 " ------------------------------------------------------------------------------------------------------
 
-
-
 " Vim speed
 set timeoutlen=1000
 set ttimeoutlen=0
@@ -179,6 +194,14 @@ set ttimeoutlen=0
 nnoremap <C-M> :NERDTree<CR>
 nnoremap <C-M> :NERDTreeToggle<CR>
 nnoremap <leader>m :NERDTreeFocus<CR>
+
+" Search settings
+nnoremap zz :FZF<CR>
+
+" Comment settings
+let g:NERDDefaultAlign = 'left'
+nnoremap z/ :call nerdcommenter#Comment(0, "toggle")<CR>
+vnoremap z/ :call nerdcommenter#Comment(0, "toggle")<CR>
 
 " vim-slime let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
@@ -203,7 +226,7 @@ nmap <leader>gs :G<CR>
 nmap <leader>gj :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
 
-autocmd Filetype java setlocal shiftwidth=2 tabstop=2
+autocmd Filetype java setlocal shiftwidth=3 tabstop=3
 autocmd Filetype javascript setlocal shiftwidth=2 tabstop=2
 autocmd Filetype html setlocal shiftwidth=2 tabstop=2
 
